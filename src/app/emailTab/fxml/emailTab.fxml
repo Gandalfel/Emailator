@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Tab text="Untitled Tab" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane fx:id="anchorPane">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="10.0" layoutY="15.0" text="From:" />
+                  <Label layoutX="10.0" layoutY="80.0" text="To:" />
+                  <Label layoutX="10.0" layoutY="145.0" text="Topic:" />
+                  <TextField fx:id="authorTextField" layoutX="10.0" layoutY="40.0" prefHeight="25.0" prefWidth="380.0" />
+                  <TextField fx:id="recipientTextField" layoutX="10.0" layoutY="105.0" prefHeight="25.0" prefWidth="380.0" />
+                  <TextField fx:id="topicTextField" layoutX="10.0" layoutY="170.0" prefHeight="25.0" prefWidth="380.0" />
+                  <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="210.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </content>
+</Tab>
