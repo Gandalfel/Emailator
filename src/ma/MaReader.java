@@ -55,10 +55,17 @@ public class MaReader
     {
         Scanner scanner = new Scanner(fileReader);
         final String AUTHOR_LABEL = "author";
-        String[] line = scanner.nextLine().split(":");
-        if (line[0].equals(AUTHOR_LABEL) )
+        try
         {
-            author = line[1];
+            String[] line = scanner.nextLine().split(":");
+            if (line[0].equals(AUTHOR_LABEL) )
+            {
+                author = line[1];
+            }
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("readAuthor error");
         }
         return author;
     }
@@ -76,11 +83,18 @@ public class MaReader
     {
         Scanner scanner = new Scanner(fileReader);
         final String RECIPIENT_LABEL = "recipient";
-        String[] line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        if (line[0].equals(RECIPIENT_LABEL) )
+        try
         {
-            recipient = line[1];
+            String[] line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            if (line[0].equals(RECIPIENT_LABEL) )
+            {
+                recipient = line[1];
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("readRecipient error");
         }
         return recipient;
     }
@@ -98,12 +112,19 @@ public class MaReader
     {
         Scanner scanner = new Scanner(fileReader);
         final String DATE_LABEL = "date";
-        String[] line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        if (line[0].equals(DATE_LABEL) )
+        try
         {
-            date = line[1];
+            String[] line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            if (line[0].equals(DATE_LABEL) )
+            {
+                date = line[1];
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("readDate error");
         }
         return date;
     }
@@ -121,13 +142,20 @@ public class MaReader
     {
         Scanner scanner = new Scanner(fileReader);
         final String TIME_LABEL = "time";
-        String[] line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        if (line[0].equals(TIME_LABEL) )
+        try
         {
-            time = line[1];
+            String[] line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            if (line[0].equals(TIME_LABEL) )
+            {
+                time = line[1];
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("readTime error");
         }
         return time;
     }
@@ -145,14 +173,21 @@ public class MaReader
     {
         Scanner scanner = new Scanner(fileReader);
         final String TOPIC_LABEL = "topic";
-        String[] line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        if (line[0].equals(TOPIC_LABEL) )
+        try
         {
-            topic = line[1];
+            String[] line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            if (line[0].equals(TOPIC_LABEL) )
+            {
+                topic = line[1];
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("readTopic error");
         }
         return topic;
     }
@@ -170,15 +205,22 @@ public class MaReader
     {
         Scanner scanner = new Scanner(fileReader);
         final String CONTENT_LABEL = "content";
-        String[] line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        line = scanner.nextLine().split(":");
-        if (line[0].equals(CONTENT_LABEL) )
+        try
         {
-            content = line[1];
+            String[] line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            line = scanner.nextLine().split(":");
+            if (line[0].equals(CONTENT_LABEL) )
+            {
+                content = line[1];
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("readContent error");
         }
         return content;
     }

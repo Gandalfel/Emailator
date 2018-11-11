@@ -1,0 +1,68 @@
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 2 0 3;
+    -fx-background-color: #43F471;
+}
+
+AnchorPane {
+    -fx-background-color: #272934;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+}
+
+StackPane {
+    -fx-background-color: #272934;
+}
+
+TextField, TextArea {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 20;
+    -fx-focus-color: transparent;
+}
+
+MenuBar {
+    -fx-background-color: #43F471;
+    -fx-focus-color: transparent;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+Menu {
+    -fx-background-color: #43F471;
+    -fx-focus-color: transparent;
+    -fx-text-fill: white;
+}
+
+MenuItem {
+    -fx-background-color: #43F471;
+    -fx-focus-color: transparent;
+    -fx-text-fill: white;
+}
+
+VBox {
+    -fx-background-color: #272934;
+}
+
+.tab {
+    -fx-background-color: #272934;
+    -fx-border-color: #000000;
+}
+
+SplitPane {
+    -fx-background-color: #272934;
+}
+
+Label, Text {
+    -fx-text-fill: white;
+    -fx-fill: white;
+}
+
+Button {
+    -fx-background-color: #43F471;
+}
+
+Button:pressed{
+    -fx-background-color: #B6F5A1;
+    -fx-focus-color: transparent;
+}
+
+

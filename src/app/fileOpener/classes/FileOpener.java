@@ -21,6 +21,8 @@ import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InvalidClassException;
+import java.lang.management.RuntimeMXBean;
 
 import static app.login.classes.Login.getMainStage;
 import static app.start.Start.getIcon;
@@ -93,10 +95,20 @@ public class FileOpener
     @FXML
     private void finishButtonClicked(ActionEvent event) throws IOException
     {
-        EmailTabCreator emailTabCreator = new EmailTabCreator(main, selectedFile.getName());
-        emailTabCreator.createTabForOpener(nameTextField.getText());
-        main.closeFileOpener();
-        main.getOpenedTabs().addType("opened");
+        if(selectedFile != null)
+        {
+            try
+            {
+                EmailTabCreator emailTabCreator = new EmailTabCreator(main, selectedFile.getName());
+                emailTabCreator.createTabForOpener(nameTextField.getText());
+                main.closeFileOpener();
+                main.getOpenedTabs().addType("opened");
+            }
+            catch (NullPointerException e)
+            {
+                errorLabel.setText("Selected file does not exist");
+            }
+        }
     }
 
     private static Stage helperStage;
