@@ -1,3 +1,3 @@
 <p align="center">
-  Emailator
+  <h1>Emailator</h1>
 </p>
