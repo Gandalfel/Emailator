@@ -2,7 +2,7 @@
   <img src="/src/img/icon.png" width="256">
 </p>
 
-<p align="center>
+<p align="center">
           <h1>Emalator</h1>
 </p>          
   
