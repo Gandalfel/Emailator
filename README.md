@@ -1,1 +1,3 @@
-# Emailator
+<p align="center">
+  Emailator
+</p>
