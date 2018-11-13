@@ -23,9 +23,9 @@
 <br>
 
 ## Technologies
-- <b>Java 10.0.2</b>
-- <b>JavaFX</b>
-- <b>CSS3</b>
+- <b><i>Java 10.0.2</i></b>
+- <b><i>JavaFX</i></b>
+- <b><i>CSS3</i></b>
 - I will use <b>Java Mail</b> libray
 <br>
 
