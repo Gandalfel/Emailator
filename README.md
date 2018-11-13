@@ -10,7 +10,7 @@
 <br>
 
 ## Features
-- <b>Receiving e-mails and accessing them offline.</b>
+- <b><i>Receiving e-mails and accessing them offline.</i></b>
 - <b>Creating emails is creating file .ma storing on your disc, which you can send or save.</b>
 #### Will be:
 - <b>Creating account.</b>
