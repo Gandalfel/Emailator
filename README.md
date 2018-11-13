@@ -19,10 +19,8 @@ Emailator is good looking app for sending and reciving e-mails in JavaFX.
 <br>
 
 ## Technologies
-<b>
-- Java 10.0.2
-- JavaFX
-- CSS3
-</b>  
+- <b>Java 10.0.2</b>
+- <b>JavaFX</b>
+- <b>CSS3</b>
 - I will use <b>Java Mail</b> libray
 <br>
