@@ -10,12 +10,12 @@
 <br>
 
 ## Features
-- <b><i>Receiving e-mails and accessing them offline.</i></b>
-- <b>Creating emails is creating file .ma storing on your disc, which you can send or save.</b>
+- <b><i>Receiving e-mails</i> and accessing them <i>offline</i>.</b>
+- <b><i>Creating e-mails</i> is creating .ma file storing on your disc, which you can send or save.</b>
 #### Will be:
-- <b>Creating account.</b>
-- <b>Sending e-mail file to server. Server will send your e-mail about the set time.</b>
-- <b>More themes in app.</b>
+- <b><i>Creating account.</i></b>
+- <b><i>Sending e-mail file to server.</i> Server will send your e-mail about the set time.</b>
+- <b><i>More themes in app.</i></b>
 <br>
 
 ## Screenshots
