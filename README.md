@@ -7,15 +7,10 @@
 </div>  
 
 Emailator is good looking app for sending and reciving e-mails in JavaFX.
-  
-## Table of content
-* [Features](#features)
-* [Screenshots](#screenshots)
-* [Technologies](#technologies)
 
 ## Features
 ---
-
+- **GREDV
 ## Screenshots
 ---
 <img src="/src/img/mainWindow2.png" width="pixels">
