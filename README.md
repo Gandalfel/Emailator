@@ -6,7 +6,7 @@
   <h1>Emailator</h1>
 </div>  
 <br>
-Emailator is good looking app for sending and reciving e-mails in JavaFX.
+<b><i>Emailator is good looking app for sending and reciving e-mails in JavaFX.</i></b>
 <br>
 
 ## Features
