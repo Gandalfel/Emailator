@@ -10,12 +10,12 @@ Emailator is good looking app for sending and reciving e-mails in JavaFX.
 <br>
 
 ## Features
-- Receiving e-mails and accessing them offline.
-- Creating emails is creating file .ma storing on your disc, which you can send or save.
+- <b>Receiving e-mails and accessing them offline.</b>
+- <b>Creating emails is creating file .ma storing on your disc, which you can send or save.</b>
 #### Will be:
-- Creating account.
-- Sending e-mail file to server. Server will send your e-mail about the set time.
-- More themes in app.
+- <b>Creating account.</b>
+- <b>Sending e-mail file to server. Server will send your e-mail about the set time.</b>
+- <b>More themes in app.</b>
 <br>
 
 ## Screenshots
