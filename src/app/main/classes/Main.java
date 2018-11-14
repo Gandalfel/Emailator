@@ -130,7 +130,7 @@ public class Main
 
             if(hereIsSavedFile != null)
             {
-                MaWriter maWriter = new MaWriter(hereIsSavedFile.getPath() + ".ma");
+                MaWriter maWriter = new MaWriter(hereIsSavedFile.getPath());
                 maWriter.writeAuthor(emailTabCreator.getEmailTab().getAuthor());
                 maWriter.writeRecipient(emailTabCreator.getEmailTab().getRecipient());
                 maWriter.writeTopic(emailTabCreator.getEmailTab().getTopic());
