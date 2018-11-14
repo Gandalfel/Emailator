@@ -23,26 +23,8 @@ public class MaWriter
     {
         this.pathOfFile = path;
 
-
-        StringBuilder sb = new StringBuilder("");
-        sb.append(path.charAt(path.length() - 3));
-        sb.append(path.charAt(path.length() - 2));
-        sb.append(path.charAt(path.length() - 1));
-        System.out.println("sb: " + sb);
-        File mainFile = new File(path);
-
-
-        /*if (String.valueOf(sb).equals(".ma"))
-        {
-            FileWriter mainFileWriter = new FileWriter(path);
-        }
-        if (!(String.valueOf(sb).equals(".ma")))
-        {
-            FileWriter mainFileWriter = new FileWriter(path + ".ma");
-        }*/
-        /*
-        ZRÓB ABY TUTAJ DODAWAŁA SIĘ KOŃCÓWKA .MA
-         */
+        FileWriter mainFile = new FileWriter(pathOfFile);
+        mainFile.close();
     }
 
     public String getPath()
@@ -59,24 +41,7 @@ public class MaWriter
 
     public void writeAuthor(String var)
     {
-        int numberOfMonkeys = 0;
-        for (int i = 0; i < var.length(); i++)
-        {
-            if (var.charAt(i) == '@')
-            {
-                numberOfMonkeys += 1;
-            }
-            else
-            {
-                System.out.println("you didn't write @");
-            }
-        }
-
-        if (numberOfMonkeys == 1)
-        {
-            author = var;
-        }
-        System.out.println(numberOfMonkeys);
+        author = var;
     }
 
     public String getAuthor()
@@ -96,24 +61,7 @@ public class MaWriter
 
     public void writeRecipient(String var)
     {
-        int numberOfMonkeys = 0;
-        for (int i = 0; i < var.length(); i++)
-        {
-            if (var.charAt(i) == '@')
-            {
-                numberOfMonkeys += 1;
-            }
-            else
-            {
-                System.out.println("you didn't write @");
-            }
-        }
-
-        if (numberOfMonkeys > 0 && numberOfMonkeys <2)
-        {
-            recipient = var;
-            System.out.println(numberOfMonkeys);
-        }
+        recipient = var;
     }
 
     public String getRecipient()

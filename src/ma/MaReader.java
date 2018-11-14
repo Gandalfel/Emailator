@@ -22,7 +22,6 @@ public class MaReader
         StringBuilder sb = new StringBuilder("");
         sb.append(path.charAt(path.length() - 3));
         sb.append(path.charAt(path.length() - 2));
-        sb.append(path.charAt(path.length() - 1));
 
         if (String.valueOf(sb).equals(".ma"))
         {
@@ -32,7 +31,6 @@ public class MaReader
         {
             System.out.println("CRITICAL ERROR: CHECKED FILE IS NOT A .MA FILE");
         }
-
         fileReader = new File(pathOfFile);
     }
 
@@ -63,7 +61,7 @@ public class MaReader
                 author = line[1];
             }
         }
-        catch (NullPointerException e)
+        catch (ArrayIndexOutOfBoundsException e)
         {
             System.out.println("readAuthor error");
         }

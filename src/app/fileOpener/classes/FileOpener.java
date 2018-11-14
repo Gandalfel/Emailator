@@ -56,7 +56,7 @@ public class FileOpener
 
     private Stage stageFileChooser;
 
-    File selectedFile;
+    private File selectedFile;
 
     @FXML
     private void openFileChooser(MouseEvent event)

@@ -18,6 +18,6 @@
         </Label>
         <TextField fx:id="nameTextField" layoutX="15.0" layoutY="35.0" prefHeight="25.0" prefWidth="400.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0" />
         <Label fx:id="errorLabel" layoutX="15.0" layoutY="90.0" prefHeight="17.0" prefWidth="400.0" textFill="#dd1111" />
-      <Button fx:id="fileChooserButton" layoutX="390.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#openFileChooser" prefHeight="24.0" prefWidth="31.0" text=". . ." />
+      <Button fx:id="fileChooserButton" layoutX="390.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#openFileChooser" prefHeight="25.0" prefWidth="30.0" text=". . ." AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="35.0" />
     </children>
 </AnchorPane>

@@ -14,9 +14,16 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import ma.MaWriter;
+
+import javax.swing.plaf.FileChooserUI;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import static app.login.classes.Login.getMainStage;
@@ -53,12 +60,35 @@ public class FileCreator
     @FXML
     private Label errorLabel;
 
+    @FXML
+    private Button openFileChooser;
+
     private String nameOfFile = "";
     private String pathOfFile = "";
 
     public String getPath()
     {
         return pathTextField.getText() + "\\" + nameTextField.getText();
+    }
+
+    private String pathFromFileChooser;
+    @FXML
+    private void openFileChooser(MouseEvent event) throws IOException
+    {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose place to create .ma file");
+        fileChooser.setInitialFileName(nameTextField.getText());
+
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter(".ma (files for Emailator", "*.ma")
+        );
+
+        pathFromFileChooser = String.valueOf(fileChooser.showSaveDialog(main.getFileOpenerStage()));
+        if (pathFromFileChooser != null)
+        {
+            pathTextField.setText(String.valueOf(pathFromFileChooser));
+        }
     }
 
     @FXML
@@ -85,7 +115,7 @@ public class FileCreator
         String nameOfFile = this.nameOfFile;
         String pathOfFile = this.pathOfFile;
 
-        if (nameOfFile.length() <= 1)
+        /*if (nameOfFile.length() == 0)
         {
             errorLabel.setText("*too few characters");
         }
@@ -93,7 +123,7 @@ public class FileCreator
         {
             errorLabel.setText("*too many characters");
         }
-        else if (nameOfFile.contains("\""))
+        else */if (nameOfFile.contains("\""))
         {
             errorLabel.setText("*do not use apostrophe ---> \"");
         }
@@ -132,7 +162,7 @@ public class FileCreator
         else
         {
             emailTabCreator = new EmailTabCreator(main, nameTextField.getText());
-            emailTabCreator.createTabForCreator(pathTextField.getText() + "\\" + nameTextField.getText());
+            emailTabCreator.createTabForCreator(pathFromFileChooser);
             main.closeFileCreator();
             main.getOpenedTabs().addType("created");
         }

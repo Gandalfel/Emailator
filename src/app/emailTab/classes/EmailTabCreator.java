@@ -55,8 +55,7 @@ public class EmailTabCreator
     public void createTabForCreator(String path) throws IOException
     {
         this.path = path;
-        System.out.println(path + ".ma");
-        maWriter = new MaWriter(path + ".ma");
+        maWriter = new MaWriter(path);
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("/app/EmailTab/fxml/emailTab.fxml"));
