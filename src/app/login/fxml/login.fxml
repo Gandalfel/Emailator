@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" spacing="10.0" style="-fx-background-color: #9F3325#9F3325;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" spacing="10.0" style="-fx-background-color: #272934;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label text="Sign In" textAlignment="CENTER" textFill="#f2f2f2" VBox.vgrow="ALWAYS">
             <font>
@@ -25,7 +25,7 @@
                                 <Font size="15.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="loginTextField" style="-fx-background-color: #9F3325#9F3325;" VBox.vgrow="NEVER">
+                        <TextField fx:id="loginTextField" style="-fx-background-color: #272934;" VBox.vgrow="NEVER">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -47,7 +47,7 @@
                                 <Font size="15.0" />
                             </font>
                         </Label>
-                        <PasswordField fx:id="passwordTextField" style="-fx-background-color: #9F3325#9F3325;" VBox.vgrow="NEVER">
+                        <PasswordField fx:id="passwordTextField" style="-fx-background-color: #272934;" VBox.vgrow="NEVER">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin>
@@ -64,7 +64,7 @@
                 </VBox>
             </children>
         </VBox>
-        <Button fx:id="signInButton" maxWidth="261.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#signInButtonAction" prefWidth="261.0" style="-fx-background-color: #F26350;" text="Sign In" textFill="#f2f2f2" VBox.vgrow="ALWAYS">
+        <Button fx:id="signInButton" maxWidth="261.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#signInButtonAction" prefWidth="261.0" style="-fx-background-color: #43F471;" text="Sign In" textFill="#f2f2f2" VBox.vgrow="ALWAYS">
             <font>
                 <Font size="15.0" />
             </font>
