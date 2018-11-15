@@ -71,7 +71,6 @@ public class Main
     @FXML
     private MenuItem saveAsMenuItem;
 
-    private Stage sendEmailStage;
     private EmailSender emailSender;
 
     @FXML
@@ -145,6 +144,8 @@ public class Main
             }
         }
     }
+
+    private Stage sendEmailStage;
 
     @FXML
     private void sendEmailClicked(Event event) throws IOException

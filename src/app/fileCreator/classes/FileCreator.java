@@ -72,11 +72,12 @@ public class FileCreator
     }
 
     private String pathFromFileChooser;
+    private FileChooser fileChooser;
     @FXML
     private void openFileChooser(MouseEvent event) throws IOException
     {
 
-        FileChooser fileChooser = new FileChooser();
+        fileChooser = new FileChooser();
         fileChooser.setTitle("Choose place to create .ma file");
         fileChooser.setInitialFileName(nameTextField.getText());
 
@@ -161,10 +162,60 @@ public class FileCreator
         }
         else
         {
-            emailTabCreator = new EmailTabCreator(main, nameTextField.getText());
-            emailTabCreator.createTabForCreator(pathFromFileChooser);
-            main.closeFileCreator();
-            main.getOpenedTabs().addType("created");
+            String finalPath = "";
+            int signsToCutCount = 0;
+            for (int i = pathFromFileChooser.length()-1; i>=0; i--)
+            {
+                if (!(pathFromFileChooser.charAt(i) == '/' || pathFromFileChooser.charAt(i) == '\\'))
+                {
+                    signsToCutCount++;
+                }
+                else if (pathFromFileChooser.charAt(i) == '/' || pathFromFileChooser.charAt(i) == '\\')
+                {
+                    signsToCutCount++;
+                    break;
+                }
+            }
+
+            finalPath = pathFromFileChooser.substring(0, pathFromFileChooser.length()-signsToCutCount);
+            System.out.println("pathFromFileChooser: " + pathFromFileChooser);
+            System.out.println("signsToCutCount: " + signsToCutCount);
+            System.out.println("finalPath: " + finalPath);
+
+            File file = null;
+            try
+            {
+                file = new File(finalPath);
+            }
+            catch (NullPointerException e) {}
+            finally
+            {
+                try
+            {
+                if (file.exists())
+                {
+                    if(file.isDirectory())
+                    {
+                        if (file.canWrite())
+                        {
+                            emailTabCreator = new EmailTabCreator(main, nameTextField.getText() + ".ma");
+                            emailTabCreator.createTabForCreator(finalPath + "/" + nameTextField.getText() + ".ma");
+                            main.closeFileCreator();
+                            main.getOpenedTabs().addType("created");
+                        }
+                        else
+                        {
+                            System.out.println("Can not save in selected directory");
+                        }
+                    }
+                }
+                else
+                {
+                    errorLabel.setText("Selected directory does not exist");
+                }
+            }
+            catch (NullPointerException e) {errorLabel.setText("Selected directory does not exist");}
+            }
         }
     }
 

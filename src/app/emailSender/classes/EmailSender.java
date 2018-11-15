@@ -16,6 +16,7 @@ public class EmailSender
     {
         this.main = main;
     }
+
     @FXML
     private Button cancelButton;
 
@@ -38,10 +39,11 @@ public class EmailSender
         Tab selectedTab = main.getTabPane().getSelectionModel().getSelectedItem();
         EmailTabCreator emailTabCreator = main.getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
 
-        /*System.out.println("AUTHOR: " + emailTabCreator.getEmailTab().getAuthor());
+        System.out.println("AUTHOR: " + emailTabCreator.getEmailTab().getAuthor());
         System.out.println("RECIPIENT: " + emailTabCreator.getEmailTab().getRecipient());
         System.out.println("TOPIC: " + emailTabCreator.getEmailTab().getTopic());
-        System.out.println("CONTENT: " + emailTabCreator.getEmailTab().getContent());*/
+        System.out.println("CONTENT: " + emailTabCreator.getEmailTab().getContent());
+        main.closeEmailSenderStage();
     }
 
     public void setEmailTextField(String s)

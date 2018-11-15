@@ -43,11 +43,6 @@ public class EmailTabCreator
         main.setTab(tab);
         main.getOpenedTabs().addIdOfTab(tab);
         main.getOpenedTabs().addEmailTabCreator(this);
-
-        /*System.out.println("EmailTabCreator" + maReader.readAuthor());
-        System.out.println("EmailTabCreator" + maReader.readRecipient());
-        System.out.println("EmailTabCreator" + maReader.readTopic());
-        System.out.println("EmailTabCreator" + maReader.readContent());*/
     }
 
     private MaWriter maWriter;
