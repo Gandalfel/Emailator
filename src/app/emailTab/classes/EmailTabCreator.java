@@ -40,6 +40,7 @@ public class EmailTabCreator
         emailTab.setTopicTextField(maReader.readTopic());
         emailTab.setContent(maReader.readContent());
 
+        main.getOpenedFiles().addFile(path);
         main.setTab(tab);
         main.getOpenedTabs().addIdOfTab(tab);
         main.getOpenedTabs().addEmailTabCreator(this);
@@ -62,6 +63,7 @@ public class EmailTabCreator
         main.getOpenedTabs().addIdOfTab(tab);
         main.getOpenedTabs().addEmailTabCreator(this);
 
+        main.getOpenedFiles().addFile(path);
         main.setTab(tab);
     }
 

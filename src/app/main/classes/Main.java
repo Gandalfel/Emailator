@@ -1,5 +1,6 @@
 package app.main.classes;
 
+import app.deleteFileDialogWindow.classes.DeleteFileDialogWindow;
 import app.emailSender.classes.EmailSender;
 import app.emailTab.classes.EmailTabCreator;
 import app.fileCreator.classes.FileCreator;
@@ -14,9 +15,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -38,8 +38,10 @@ public class Main
     public Main(Login login)
     {
         this.login = login;
-        //emailItem.getStyleCl
     }
+
+    @FXML
+    private MenuBar menuBar = new MenuBar();
 
     @FXML
     private VBox vBox;
@@ -70,6 +72,42 @@ public class Main
 
     @FXML
     private MenuItem saveAsMenuItem;
+
+    @FXML
+    private MenuItem deleteItem;
+
+    @FXML
+    private Menu closeTheTabItem = new Menu();
+
+    @FXML
+    private void closeTheTabClicked(ActionEvent event)
+    {
+        Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
+        EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
+
+        tabPane.getTabs().removeAll(selectedTab);
+    }
+
+    private Stage deleteFileDialogWindowStage;
+
+    @FXML
+    private void deleteClicked(ActionEvent event) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/app/deleteFileDialogWindow/fxml/deleteFileDialogWindow.fxml"));
+        loader.setController(new DeleteFileDialogWindow(this));
+        AnchorPane anchorPane = loader.load();
+        Scene scene = new Scene(anchorPane);
+        scene.getStylesheets().add(
+                getClass().getClassLoader().getResource("stylesheets/mainStylesheet.css").toString());
+        deleteFileDialogWindowStage = new Stage();
+        deleteFileDialogWindowStage.setScene(scene);
+        deleteFileDialogWindowStage.show();
+    }
+
+    public void closeDeleteFileDialogWindowStage()
+    {
+        deleteFileDialogWindowStage.close();
+    }
 
     private EmailSender emailSender;
 
@@ -240,10 +278,6 @@ public class Main
         return fileCreatorStage;
     }
 
-
-    /*
-    * File opener
-    */
     private Stage fileOpenerStage;
 
     @FXML
@@ -308,5 +342,30 @@ public class Main
     public OpenedFiles getOpenedFiles()
     {
         return openedFiles;
+    }
+
+    public boolean isFile(String path)
+    {
+        File file = null;
+        try
+        {
+            file = new File(path);
+        }
+        catch (NullPointerException e) {}
+        finally
+        {
+            try
+            {
+                if (file.exists())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (NullPointerException e) {return false;}
+        }
     }
 }

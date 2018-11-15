@@ -176,11 +176,7 @@ public class FileCreator
                     break;
                 }
             }
-
             finalPath = pathFromFileChooser.substring(0, pathFromFileChooser.length()-signsToCutCount);
-            System.out.println("pathFromFileChooser: " + pathFromFileChooser);
-            System.out.println("signsToCutCount: " + signsToCutCount);
-            System.out.println("finalPath: " + finalPath);
 
             File file = null;
             try
