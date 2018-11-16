@@ -8,10 +8,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -97,18 +94,35 @@ public class FileOpener
     @FXML
     private void finishButtonClicked(ActionEvent event) throws IOException
     {
-        if(selectedFile != null)
+        System.out.println("selectedFile: "+nameTextField.getText());
+        if (!main.getOpenedFiles().checkFile(nameTextField.getText()))
         {
-            try
+            if(selectedFile != null)
             {
-                emailTabCreator = new EmailTabCreator(main, selectedFile.getName());
-                emailTabCreator.createTabForOpener(nameTextField.getText());
-                main.closeFileOpener();
-                main.getOpenedTabs().addType("opened");
+                try
+                {
+                    System.out.println("FIRST IFFFFF");
+                    emailTabCreator = new EmailTabCreator(main, selectedFile.getName().trim());
+                    emailTabCreator.createTabForOpener(nameTextField.getText().trim());
+                    main.closeFileOpener();
+                    main.getOpenedTabs().addType("opened");
+                }
+                catch (NullPointerException e)
+                {
+                    errorLabel.setText("Selected file does not exist");
+                }
             }
-            catch (NullPointerException e)
+        }
+        else if(main.getOpenedFiles().checkFile(selectedFile.getName()))
+        {
+            if (main.getOpenedTabs().size() >= 1)
             {
-                errorLabel.setText("Selected file does not exist");
+                System.out.println("TWICE IFFFFFF");
+                Tab selectedTab = main.getTabPane().getSelectionModel().getSelectedItem();
+                EmailTabCreator emailTabCreator = main.getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
+
+                SingleSelectionModel<Tab> selectionModel = main.getTabPane().getSelectionModel();
+                selectionModel.select(emailTabCreator.getTab());
             }
         }
     }
@@ -155,5 +169,12 @@ public class FileOpener
     public static void closeHelperFromFileOpener()
     {
         helperStage.close();
+    }
+
+    public void notEditable()
+    {
+        nameTextField.setEditable(false);
+        nameTextField.setMouseTransparent(true);
+        nameTextField.setFocusTraversable(false);
     }
 }

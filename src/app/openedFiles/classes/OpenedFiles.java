@@ -19,14 +19,20 @@ public class OpenedFiles
     public void addFile(String path)
     {
         list.add(path);
+        System.out.println("--ADD--");
+        System.out.println("size: " + list.size());
+        System.out.println("list" + list);
+        System.out.println("path" + path);
     }
 
     public boolean checkFile(String path)
     {
-        for (int i = 0; i >= list.size(); i++)
+        for (int i = 0; i <= list.size()-1; i++)
         {
+            System.out.println(i);
             if (list.get(i).equals(path))
             {
+                System.out.println(list.get(i));
                 return true;
             }
         }
@@ -35,9 +41,10 @@ public class OpenedFiles
 
     public void removeFile(String path)
     {
+        System.out.println("--REMOVE-- AFTER REMOVE");
         System.out.println("size: " + list.size());
-        System.out.println("\n" + list);
-        System.out.println("\n" + path);
+        System.out.println("list" + list);
+        System.out.println("path" + path);
         for(int i = 0; i <= list.size(); i++)
         {
             if(list.get(i).equals(path))
@@ -51,5 +58,9 @@ public class OpenedFiles
                 System.out.println("SOMETHING WORK WRONG IN removeFile() in OpenedFiles class");
             }
         }
+        System.out.println("--REMOVE-- BEFORE REMOVE");
+        System.out.println("size: " + list.size());
+        System.out.println("list" + list);
+        System.out.println("path" + path);
     }
 }
