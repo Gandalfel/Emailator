@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.text.Text;
 
+import javax.mail.MessagingException;
+
 public class EmailSender
 {
     private Main main;
@@ -33,9 +35,8 @@ public class EmailSender
     }
 
     @FXML
-    private void sendButtonClicked(ActionEvent event)
+    private void sendButtonClicked(ActionEvent event) throws MessagingException
     {
-        //sendEmailWithX();
         Tab selectedTab = main.getTabPane().getSelectionModel().getSelectedItem();
         EmailTabCreator emailTabCreator = main.getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
 
@@ -44,6 +45,9 @@ public class EmailSender
         System.out.println("TOPIC: " + emailTabCreator.getEmailTab().getTopic());
         System.out.println("CONTENT: " + emailTabCreator.getEmailTab().getContent());
         main.closeEmailSenderStage();
+        new Email(main.getLogin().getWrittenLogin(), main.getLogin().getWrittenPassword(),
+                emailTabCreator.getEmailTab().getRecipient(), emailTabCreator.getEmailTab().getTopic(),
+                emailTabCreator.getEmailTab().getContent());
     }
 
     public void setEmailTextField(String s)

@@ -25,7 +25,7 @@
                                 <Font size="15.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="loginTextField" style="-fx-background-color: #272934;" VBox.vgrow="NEVER">
+                        <TextField fx:id="loginTextField" style="-fx-background-color: #272934; -fx-text-fill: white" VBox.vgrow="NEVER">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -47,7 +47,7 @@
                                 <Font size="15.0" />
                             </font>
                         </Label>
-                        <PasswordField fx:id="passwordTextField" style="-fx-background-color: #272934;" VBox.vgrow="NEVER">
+                        <PasswordField fx:id="passwordTextField" style="-fx-background-color: #272934; -fx-text-fill: white" VBox.vgrow="NEVER">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin>

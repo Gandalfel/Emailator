@@ -31,12 +31,13 @@ import static app.start.Start.getIcon;
 
 public class FileCreator
 {
-    private EmailTab emailTab = new EmailTab();
+    private EmailTab emailTab;
     private Main main;
 
     public FileCreator(Main main)
     {
         this.main = main;
+        this.emailTab = new EmailTab(main);
     }
 
     @FXML
@@ -76,7 +77,6 @@ public class FileCreator
     @FXML
     private void openFileChooser(MouseEvent event) throws IOException
     {
-
         fileChooser = new FileChooser();
         fileChooser.setTitle("Choose place to create .ma file");
         fileChooser.setInitialFileName(nameTextField.getText());

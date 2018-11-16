@@ -368,4 +368,9 @@ public class Main
             catch (NullPointerException e) {return false;}
         }
     }
+
+    public Login getLogin()
+    {
+        return login;
+    }
 }

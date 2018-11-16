@@ -92,6 +92,8 @@ public class FileOpener
         }
     }
 
+    private EmailTabCreator emailTabCreator;
+
     @FXML
     private void finishButtonClicked(ActionEvent event) throws IOException
     {
@@ -99,7 +101,7 @@ public class FileOpener
         {
             try
             {
-                EmailTabCreator emailTabCreator = new EmailTabCreator(main, selectedFile.getName());
+                emailTabCreator = new EmailTabCreator(main, selectedFile.getName());
                 emailTabCreator.createTabForOpener(nameTextField.getText());
                 main.closeFileOpener();
                 main.getOpenedTabs().addType("opened");

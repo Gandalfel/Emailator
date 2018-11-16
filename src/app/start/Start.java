@@ -25,19 +25,25 @@ public class Start extends Application
 
     private Stage stage = new Stage();
     private static Image icon = new Image(Start.class.getResourceAsStream("/img/icon.png"));
+    private Login login = new Login(this);
 
     @Override
     public void start(Stage primaryStage) throws Exception
     {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("/app/login/fxml/login.fxml"));
-        loader.setController(new Login(this));
+        loader.setController(login);
         VBox vBox = loader.load();
         Scene scene = new Scene(vBox);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(icon);
         stage.show();
+    }
+
+    public Login getLogin()
+    {
+        return login;
     }
 
     public void closeLogin()

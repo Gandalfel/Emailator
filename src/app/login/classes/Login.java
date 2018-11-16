@@ -19,7 +19,7 @@ import static app.start.Start.getIcon;
 
 public class Login
 {
-    private Start start;
+    private static Start start;
 
     public Login(Start start)
     {
@@ -38,14 +38,17 @@ public class Login
     private String login = "";
     private String password = "";
 
+    private String writtenLogin = "";
+    private String writtenPassword = "";
+
     private static Stage stage = new Stage();
     private OpenedTabs openedTabs;
 
     @FXML
     private void signInButtonAction(MouseEvent event) throws IOException
     {
-        if (loginTextField.getText().equals(login) && passwordTextField.getText().equals(password))
-        {
+        /*if (loginTextField.getText().equals(login) && passwordTextField.getText().equals(password))
+        {*/
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource("/app/main/fxml/main.fxml"));
             loader.setController(new Main(this));
@@ -60,8 +63,11 @@ public class Login
 
             openedTabs = new OpenedTabs(this);
 
+            writtenLogin = loginTextField.getText();
+            writtenPassword = passwordTextField.getText();
+
             start.closeLogin();
-        }
+        //}
     }
 
     public OpenedTabs getOpenedTabs()
@@ -77,5 +83,15 @@ public class Login
     public static Stage getMainStage()
     {
         return stage;
+    }
+
+    public String getWrittenPassword()
+    {
+        return writtenPassword;
+    }
+
+    public String getWrittenLogin()
+    {
+        return writtenLogin;
     }
 }

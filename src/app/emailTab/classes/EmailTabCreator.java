@@ -12,7 +12,7 @@ public class EmailTabCreator
 {
     private Main main;
     private String name;
-    private EmailTab emailTab = new EmailTab();
+    private EmailTab emailTab = new EmailTab(main);
     private String path;
 
     public EmailTabCreator(Main main, String name)

@@ -23,9 +23,9 @@ public class OpenedFiles
 
     public boolean checkFile(String path)
     {
-        for(int i = 0; i >= list.size(); i++)
+        for (int i = 0; i >= list.size(); i++)
         {
-            if(list.get(i).equals(path))
+            if (list.get(i).equals(path))
             {
                 return true;
             }
