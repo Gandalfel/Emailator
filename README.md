@@ -12,7 +12,7 @@
 # Features
 - <b><i>Receiving e-mails</i> and accessing them <i>offline</i>.</b>
 - <b><i>Creating e-mails</i> is creating .ma file storing on your disc, which you can send or save.</b>
-## Will be:
+### Will be:
 - <b><i>Creating account.</i></b>
 - <b><i>Sending e-mail file to server.</i> Server will send your e-mail about the set time.</b>
 - <b><i>More themes in app.</i></b>
