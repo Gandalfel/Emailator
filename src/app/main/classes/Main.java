@@ -93,15 +93,21 @@ public class Main
     @FXML
     private void deleteClicked(ActionEvent event) throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/app/deleteFileDialogWindow/fxml/deleteFileDialogWindow.fxml"));
-        loader.setController(new DeleteFileDialogWindow(this));
-        AnchorPane anchorPane = loader.load();
-        Scene scene = new Scene(anchorPane);
-        scene.getStylesheets().add(
-                getClass().getClassLoader().getResource("stylesheets/mainStylesheet.css").toString());
-        deleteFileDialogWindowStage = new Stage();
-        deleteFileDialogWindowStage.setScene(scene);
-        deleteFileDialogWindowStage.show();
+        if (this.getOpenedTabs().size() >= 1)
+        {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/app/deleteFileDialogWindow/fxml/deleteFileDialogWindow.fxml"));
+            loader.setController(new DeleteFileDialogWindow(this));
+            AnchorPane anchorPane = loader.load();
+            Scene scene = new Scene(anchorPane);
+            scene.getStylesheets().add(
+                    getClass().getClassLoader().getResource("stylesheets/mainStylesheet.css").toString());
+            deleteFileDialogWindowStage = new Stage();
+            deleteFileDialogWindowStage.initOwner(login.getMainStage());
+            deleteFileDialogWindowStage.initModality(Modality.APPLICATION_MODAL);
+            deleteFileDialogWindowStage.setScene(scene);
+            deleteFileDialogWindowStage.getIcons().add(getIcon());
+            deleteFileDialogWindowStage.show();
+        }
     }
 
     public void closeDeleteFileDialogWindowStage()
@@ -203,6 +209,7 @@ public class Main
             sendEmailStage.setResizable(false);
             sendEmailStage.initOwner(login.getMainStage());
             sendEmailStage.initModality(Modality.APPLICATION_MODAL);
+            sendEmailStage.getIcons().add(getIcon());
 
             Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
             EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
@@ -230,9 +237,6 @@ public class Main
         tabPane.getTabs().add(tab);
     }
 
-    /*
-     * File creator
-     */
     private Stage fileCreatorStage;
     private FileCreator fileCreator;
 
@@ -254,6 +258,7 @@ public class Main
         fileCreatorStage.setScene(scene);
         fileCreatorStage.setResizable(false);
         fileCreatorStage.getIcons().add(getIcon());
+        fileCreator.notEditable();
         fileCreatorStage.show();
 
         fileCreatorStage.setOnCloseRequest(new EventHandler<WindowEvent>()
@@ -279,15 +284,16 @@ public class Main
     }
 
     private Stage fileOpenerStage;
-
+    private FileOpener fileOpener;
     @FXML
     private void fileOpener(ActionEvent event) throws IOException
     {
         fileOpenerStage = new Stage();
+        fileOpener = new FileOpener(this);
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("/app/fileOpener/fxml/fileOpener.fxml"));
-        loader.setController(new FileOpener(this));
+        loader.setController(fileOpener);
         AnchorPane anchorPane = loader.load();
         Scene scene = new Scene(anchorPane);
         scene.getStylesheets().add(
@@ -298,6 +304,7 @@ public class Main
         fileOpenerStage.setScene(scene);
         fileOpenerStage.setResizable(false);
         fileOpenerStage.getIcons().add(getIcon());
+        fileOpener.notEditable();
         fileOpenerStage.show();
 
         fileOpenerStage.setOnCloseRequest(new EventHandler<WindowEvent>()

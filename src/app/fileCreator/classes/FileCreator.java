@@ -53,10 +53,10 @@ public class FileCreator
     private Button finishButton;
 
     @FXML
-    private TextField nameTextField;
+    private TextField nameTextField = new TextField();
 
     @FXML
-    private TextField pathTextField;
+    private TextField pathTextField = new TextField();
 
     @FXML
     private Label errorLabel;
@@ -258,5 +258,15 @@ public class FileCreator
     public static void closeHelperFromFileCreator()
     {
         helperStage.close();
+    }
+
+    public void notEditable()
+    {
+        nameTextField.setEditable(false);
+        nameTextField.setMouseTransparent(true);
+        nameTextField.setFocusTraversable(false);
+        pathTextField.setEditable(false);
+        pathTextField.setMouseTransparent(true);
+        pathTextField.setFocusTraversable(false);
     }
 }

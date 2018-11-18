@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -65,6 +66,10 @@ public class MaReader
         {
             System.out.println("readAuthor error");
         }
+        catch (NoSuchElementException e)
+        {
+            System.out.println("readAuthor error");
+        }
         return author;
     }
 
@@ -91,6 +96,10 @@ public class MaReader
             }
         }
         catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("readRecipient error");
+        }
+        catch (NoSuchElementException e)
         {
             System.out.println("readRecipient error");
         }
@@ -124,6 +133,10 @@ public class MaReader
         {
             System.out.println("readDate error");
         }
+        catch (NoSuchElementException e)
+        {
+            System.out.println("readDate error");
+        }
         return date;
     }
 
@@ -152,6 +165,10 @@ public class MaReader
             }
         }
         catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("readTime error");
+        }
+        catch (NoSuchElementException e)
         {
             System.out.println("readTime error");
         }
@@ -187,6 +204,10 @@ public class MaReader
         {
             System.out.println("readTopic error");
         }
+        catch (NoSuchElementException e)
+        {
+            System.out.println("readTopic error");
+        }
         return topic;
     }
 
@@ -217,6 +238,10 @@ public class MaReader
             }
         }
         catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("readContent error");
+        }
+        catch (NoSuchElementException e)
         {
             System.out.println("readContent error");
         }
