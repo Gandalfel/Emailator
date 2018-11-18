@@ -11,6 +11,9 @@ public class EmailTab
     public EmailTab(Main main)
     {
         this.main = main;
+        authorTextField.setEditable(false);
+        authorTextField.setMouseTransparent(true);
+        authorTextField.setFocusTraversable(false);
     }
 
     @FXML
@@ -72,5 +75,12 @@ public class EmailTab
     public String getContent()
     {
         return textArea.getText();
+    }
+
+    public void notEditable()
+    {
+        authorTextField.setEditable(false);
+        authorTextField.setMouseTransparent(true);
+        authorTextField.setFocusTraversable(false);
     }
 }

@@ -58,6 +58,7 @@
                                 <StackPane>
 
                                 </StackPane>
+                        <VBox prefHeight="150.0" />
                             </children>
                         </VBox>
                     </children>

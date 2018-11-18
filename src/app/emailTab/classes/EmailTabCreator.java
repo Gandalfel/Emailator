@@ -35,7 +35,8 @@ public class EmailTabCreator
         tab = loader.load();
         tab.setText(name);
 
-        emailTab.setAuthorTextField(maReader.readAuthor());
+        emailTab.notEditable();
+        emailTab.setAuthorTextField(main.getLogin().getWrittenLogin());
         emailTab.setRecipientTextField(maReader.readRecipient());
         emailTab.setTopicTextField(maReader.readTopic());
         emailTab.setContent(maReader.readContent());

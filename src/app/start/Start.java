@@ -15,9 +15,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class Start extends Application
 {
+    public Start() throws IOException
+    {
+
+    }
+
     public static void main(String[] args)
     {
         launch();

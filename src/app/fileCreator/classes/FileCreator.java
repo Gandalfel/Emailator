@@ -265,8 +265,5 @@ public class FileCreator
         nameTextField.setEditable(false);
         nameTextField.setMouseTransparent(true);
         nameTextField.setFocusTraversable(false);
-        pathTextField.setEditable(false);
-        pathTextField.setMouseTransparent(true);
-        pathTextField.setFocusTraversable(false);
     }
 }

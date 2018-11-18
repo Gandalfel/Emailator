@@ -94,7 +94,6 @@ public class FileOpener
     @FXML
     private void finishButtonClicked(ActionEvent event) throws IOException
     {
-        System.out.println("selectedFile: "+nameTextField.getText());
         if (!main.getOpenedFiles().checkFile(nameTextField.getText()))
         {
             if(selectedFile != null)
