@@ -18,6 +18,7 @@ import java.io.DataOutput;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.SocketException;
 
 import static app.start.Start.getIcon;
 
@@ -49,29 +50,37 @@ public class Login
     private Socket socket = new Socket("127.0.0.1", 2020);
     private DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
     private DataInputStream inputStream;
+    private Main main = new Main(this);
 
     @FXML
     private void signInButtonAction(MouseEvent event) throws IOException
     {
         inputStream = new DataInputStream(socket.getInputStream());
-        writtenLogin = loginTextField.getText();
-        writtenPassword = passwordTextField.getText();
-        outputStream.writeUTF(loginTextField.getText());
-        outputStream.writeUTF(passwordTextField.getText());
+        boolean isValid = false;
 
-        boolean isValid = true;
-        inputStream.readBoolean();
+        try
+        {
+            writtenLogin = loginTextField.getText();
+            writtenPassword = passwordTextField.getText();
+            outputStream.writeUTF(loginTextField.getText());
+            outputStream.writeUTF(passwordTextField.getText());
+            isValid = inputStream.readBoolean();
+        }
+        catch (SocketException e)
+        {
+            System.out.println("bad password or login");
+        }
 
         if (isValid)
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource("/app/main/fxml/main.fxml"));
-            loader.setController(new Main(this));
+            loader.setController(main);
             VBox vBox = loader.load();
             Scene scene = new Scene(vBox);
             scene.getStylesheets().add(
                     getClass().getClassLoader().getResource("stylesheets/mainStylesheet.css").toString());
-
+            main.setStylesheetForTwoButtons();
             stage.setScene(scene);
             stage.show();
             stage.getIcons().add(getIcon());

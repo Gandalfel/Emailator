@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -78,6 +79,39 @@ public class Main
 
     @FXML
     private Menu closeTheTabItem = new Menu();
+
+    @FXML
+    private ImageView avatarImageViev;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label emailLabel;
+
+    @FXML
+    private Button addTabButton = new Button();
+
+    @FXML
+    private Button subButton = new Button();
+
+    public void setStylesheetForTwoButtons()
+    {
+        subButton.getStylesheets().add("/stylesheets/roundButton.css");
+        addTabButton.getStylesheets().add("/stylesheets/roundButton.css");
+    }
+
+    @FXML
+    private void addTabClicked(ActionEvent event)
+    {
+
+    }
+
+    @FXML
+    private void subButtonClicked(ActionEvent event)
+    {
+
+    }
 
     @FXML
     private void closeTheTabClicked(ActionEvent event)

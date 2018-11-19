@@ -1,0 +1,11 @@
+Button {
+    -fx-border-radius: 1000;
+    -fx-background-radius: 1000;
+    -fx-background-color: #43F471;
+    -fx-border-color: #43F471;
+}
+
+Button:pressed{
+    -fx-background-color: #B6F5A1;
+    -fx-focus-color: transparent;
+}
