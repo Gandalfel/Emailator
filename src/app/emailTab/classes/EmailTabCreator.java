@@ -7,22 +7,46 @@ import ma.MaReader;
 import ma.MaWriter;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class EmailTabCreator
 {
+    private int id;
     private Main main;
     private String name;
     private EmailTab emailTab = new EmailTab(main);
     private String path;
+    private String openedOrCreated = "";
 
     public EmailTabCreator(Main main, String name)
     {
         this.main = main;
         this.name = name;
+
+        Random random = new Random();
+        id = random.nextInt();
     }
 
     private Tab tab;
     private MaReader maReader;
+
+    public void openNoNameTab() throws IOException
+    {
+        path = "any path";
+        EmailTab emailTab = new EmailTab(main);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("/app/EmailTab/fxml/emailTab.fxml"));
+        loader.setController(emailTab);
+        tab = loader.load();
+        tab.setText(name);
+
+        emailTab.notEditable();
+        emailTab.setAuthorTextField(main.getLogin().getWrittenLogin());
+
+        main.setTab(tab);
+        main.getOpenedTabs().addEmailTabCreator(this);
+        openedOrCreated = "default";
+    }
 
     public void createTabForOpener(String path) throws IOException
     {
@@ -41,10 +65,9 @@ public class EmailTabCreator
         emailTab.setTopicTextField(maReader.readTopic());
         emailTab.setContent(maReader.readContent());
 
-        main.getOpenedFiles().addFile(path);
         main.setTab(tab);
-        main.getOpenedTabs().addIdOfTab(tab);
         main.getOpenedTabs().addEmailTabCreator(this);
+        openedOrCreated = "created";
     }
 
     private MaWriter maWriter;
@@ -61,11 +84,10 @@ public class EmailTabCreator
         tab = loader.load();
         tab.setText(name);
 
-        main.getOpenedTabs().addIdOfTab(tab);
         main.getOpenedTabs().addEmailTabCreator(this);
 
-        main.getOpenedFiles().addFile(path);
         main.setTab(tab);
+        openedOrCreated = "opened";
     }
 
     public MaReader getMaReader()
@@ -91,5 +113,15 @@ public class EmailTabCreator
     public Tab getTab()
     {
         return tab;
+    }
+
+    public String getOpenedOrCreated()
+    {
+        return openedOrCreated;
+    }
+
+    public int getId()
+    {
+        return id;
     }
 }

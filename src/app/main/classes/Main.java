@@ -2,10 +2,10 @@ package app.main.classes;
 
 import app.deleteFileDialogWindow.classes.DeleteFileDialogWindow;
 import app.emailSender.classes.EmailSender;
+import app.emailTab.classes.EmailTab;
 import app.emailTab.classes.EmailTabCreator;
 import app.fileCreator.classes.FileCreator;
 import app.fileOpener.classes.FileOpener;
-import app.openedFiles.classes.OpenedFiles;
 import app.openedTabs.classes.OpenedTabs;
 import app.login.classes.Login;
 import javafx.application.Platform;
@@ -102,15 +102,22 @@ public class Main
     }
 
     @FXML
-    private void addTabClicked(ActionEvent event)
+    private void addTabClicked(ActionEvent event) throws IOException
     {
-
+        EmailTabCreator emailTabCreator = new EmailTabCreator(this, "Untitled");
+        emailTabCreator.openNoNameTab();
+        System.out.println(getOpenedTabs().size());
     }
 
     @FXML
     private void subButtonClicked(ActionEvent event)
     {
+        Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
+        EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(selectedTab);
 
+        getOpenedTabs().removeEmailTabCreator(emailTabCreator);
+        tabPane.getTabs().removeAll(selectedTab);
+        System.out.println(getOpenedTabs().size());
     }
 
     @FXML
@@ -159,7 +166,7 @@ public class Main
             Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
             EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
 
-            if ( getOpenedTabs().getType(Integer.parseInt(emailTabCreator.getTab().getId())).equals("opened"))
+            if (getOpenedTabs().getEmailTabCreator(emailTabCreator.getId()).getOpenedOrCreated().equals("opened"))
             {
                 MaWriter maWriter = new MaWriter(emailTabCreator.getMaReader().getPath());
                 maWriter.writeAuthor(emailTabCreator.getEmailTab().getAuthor());
@@ -170,7 +177,7 @@ public class Main
                 maWriter.writeContent(emailTabCreator.getEmailTab().getContent());
                 maWriter.writeAll();
             }
-            else if (getOpenedTabs().getType(Integer.parseInt(emailTabCreator.getTab().getId())).equals("created"))
+            else if (getOpenedTabs().getEmailTabCreator(emailTabCreator.getId()).getOpenedOrCreated().equals("created"))
             {
                 MaWriter maWriter = new MaWriter(emailTabCreator.getMaWriter().getPath());
                 maWriter.writeAuthor(emailTabCreator.getEmailTab().getAuthor());
@@ -246,7 +253,7 @@ public class Main
             sendEmailStage.getIcons().add(getIcon());
 
             Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
-            EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
+            EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(selectedTab);
             emailSender.setEmailTextField(emailTabCreator.getEmailTab().getAuthor());
 
             sendEmailStage.show();
@@ -376,13 +383,6 @@ public class Main
     public OpenedTabs getOpenedTabs()
     {
         return login.getOpenedTabs();
-    }
-
-    private OpenedFiles openedFiles = new OpenedFiles(this);
-
-    public OpenedFiles getOpenedFiles()
-    {
-        return openedFiles;
     }
 
     public boolean isFile(String path)

@@ -197,7 +197,6 @@ public class FileCreator
                             emailTabCreator = new EmailTabCreator(main, nameTextField.getText() + ".ma");
                             emailTabCreator.createTabForCreator(finalPath + "/" + nameTextField.getText() + ".ma");
                             main.closeFileCreator();
-                            main.getOpenedTabs().addType("created");
                         }
                         else
                         {

@@ -94,7 +94,7 @@ public class FileOpener
     @FXML
     private void finishButtonClicked(ActionEvent event) throws IOException
     {
-        if (!main.getOpenedFiles().checkFile(nameTextField.getText()))
+        if (!main.getOpenedTabs().checkFile(nameTextField.getText()))
         {
             if(selectedFile != null)
             {
@@ -104,7 +104,6 @@ public class FileOpener
                     emailTabCreator = new EmailTabCreator(main, selectedFile.getName().trim());
                     emailTabCreator.createTabForOpener(nameTextField.getText().trim());
                     main.closeFileOpener();
-                    main.getOpenedTabs().addType("opened");
                 }
                 catch (NullPointerException e)
                 {
@@ -112,7 +111,7 @@ public class FileOpener
                 }
             }
         }
-        else if(main.getOpenedFiles().checkFile(selectedFile.getName()))
+        else if(main.getOpenedTabs().checkFile(selectedFile.getName()))
         {
             if (main.getOpenedTabs().size() >= 1)
             {

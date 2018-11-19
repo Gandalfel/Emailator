@@ -38,7 +38,7 @@ public class EmailSender
     private void sendButtonClicked(ActionEvent event) throws MessagingException
     {
         Tab selectedTab = main.getTabPane().getSelectionModel().getSelectedItem();
-        EmailTabCreator emailTabCreator = main.getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
+        EmailTabCreator emailTabCreator = main.getOpenedTabs().getEmailTabCreator(selectedTab);
 
         main.closeEmailSenderStage();
         new Email(main.getLogin().getWrittenLogin(), main.getLogin().getWrittenPassword(),

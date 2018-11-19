@@ -38,7 +38,7 @@ public class DeleteFileDialogWindow
             /*if (main.isFile(emailTabCreator.getPath()))
             {*/
                 System.out.println("makapakapa");
-                main.getOpenedFiles().removeFile(emailTabCreator.getPath());
+                main.getOpenedTabs().removeEmailTabCreator(emailTabCreator);
                 main.getTabPane().getTabs().removeAll(selectedTab);
             //}
             main.closeDeleteFileDialogWindowStage();
