@@ -26,7 +26,7 @@
 - <b><i>Java 10.0.2</i></b>
 - <b><i>JavaFX</i></b>
 - <b><i>CSS3</i></b>
-- I will use <b><i>Java Mail</i></b> libray
+- <b><i>Java Mail</i></b>
 <br>
 
 # Download
