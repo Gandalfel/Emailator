@@ -37,5 +37,13 @@
 
 .tab:selected .tab-label {
     -fx-alignment: CENTER;
-    -fx-text-fill: #96b946;
+    -fx-text-fill: #43F471;
+}
+
+#anchorPane {
+    -fx-background-color: #3c3c3c;
+}
+
+Label, Text {
+    -fx-text-fill: #ffffff;
 }
