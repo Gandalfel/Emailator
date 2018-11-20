@@ -28,7 +28,7 @@ public class DeleteFileDialogWindow
     @FXML
     private void okClicked(ActionEvent event)
     {
-        if (main.getOpenedTabs().size() >= 1)
+        if (main.getOpenedTabs().getTabsCount() >= 1)
         {
             Tab selectedTab = main.getTabPane().getSelectionModel().getSelectedItem();
             EmailTabCreator emailTabCreator = main.getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));

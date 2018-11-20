@@ -47,15 +47,15 @@ public class Login
 
     private static Stage stage = new Stage();
     private OpenedTabs openedTabs;
-    private Socket socket = new Socket("127.0.0.1", 2020);
-    private DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+    //private Socket socket = new Socket("127.0.0.1", 2020);
+    //private DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
     private DataInputStream inputStream;
     private Main main = new Main(this);
 
     @FXML
     private void signInButtonAction(MouseEvent event) throws IOException
     {
-        inputStream = new DataInputStream(socket.getInputStream());
+        /*inputStream = new DataInputStream(socket.getInputStream());
         boolean isValid = false;
 
         try
@@ -72,7 +72,7 @@ public class Login
         }
 
         if (isValid)
-        {
+        {*/
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource("/app/main/fxml/main.fxml"));
             loader.setController(main);
@@ -87,7 +87,7 @@ public class Login
 
             openedTabs = new OpenedTabs(this);
             start.closeLogin();
-        }
+        //}
     }
 
     public OpenedTabs getOpenedTabs()

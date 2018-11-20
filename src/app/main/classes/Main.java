@@ -42,10 +42,13 @@ public class Main
     }
 
     @FXML
+    private AnchorPane menuAnchorPane = new AnchorPane();
+
+    @FXML
     private MenuBar menuBar = new MenuBar();
 
     @FXML
-    private VBox vBox;
+    private VBox vBox = new VBox();
 
     @FXML
     private MenuItem emailItem;
@@ -106,18 +109,21 @@ public class Main
     {
         EmailTabCreator emailTabCreator = new EmailTabCreator(this, "Untitled");
         emailTabCreator.openNoNameTab();
-        System.out.println(getOpenedTabs().size());
+        System.out.println(getOpenedTabs().getTabsCount());
     }
 
     @FXML
     private void subButtonClicked(ActionEvent event)
     {
-        Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
-        EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(selectedTab);
+        if (getOpenedTabs().getTabsCount() >= 1)
+        {
+            Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
+            EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(selectedTab);
 
-        getOpenedTabs().removeEmailTabCreator(emailTabCreator);
-        tabPane.getTabs().removeAll(selectedTab);
-        System.out.println(getOpenedTabs().size());
+            getOpenedTabs().removeEmailTabCreator(emailTabCreator);
+            tabPane.getTabs().removeAll(selectedTab);
+            System.out.println(getOpenedTabs().getTabsCount());
+        }
     }
 
     @FXML
@@ -134,7 +140,7 @@ public class Main
     @FXML
     private void deleteClicked(ActionEvent event) throws IOException
     {
-        if (this.getOpenedTabs().size() >= 1)
+        if (this.getOpenedTabs().getTabsCount() >= 1)
         {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/app/deleteFileDialogWindow/fxml/deleteFileDialogWindow.fxml"));
             loader.setController(new DeleteFileDialogWindow(this));
@@ -161,7 +167,7 @@ public class Main
     @FXML
     private void saveClicked(ActionEvent event) throws IOException
     {
-        if(login.getOpenedTabs().size() >= 1)
+        if(login.getOpenedTabs().getTabsCount() >= 1)
         {
             Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
             EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
@@ -201,7 +207,7 @@ public class Main
     @FXML
     private void saveAsClicked(ActionEvent event) throws IOException
     {
-        if(login.getOpenedTabs().size() >= 1)
+        if(login.getOpenedTabs().getTabsCount() >= 1)
         {
             Tab selectedTab = getTabPane().getSelectionModel().getSelectedItem();
             EmailTabCreator emailTabCreator = getOpenedTabs().getEmailTabCreator(Integer.parseInt(selectedTab.getId()));
@@ -235,7 +241,7 @@ public class Main
     @FXML
     private void sendEmailClicked(Event event) throws IOException
     {
-        if(login.getOpenedTabs().size() >= 1)
+        if(login.getOpenedTabs().getTabsCount() >= 1)
         {
             sendEmailStage = new Stage();
 

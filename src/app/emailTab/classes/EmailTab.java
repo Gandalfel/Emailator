@@ -2,8 +2,11 @@ package app.emailTab.classes;
 
 import app.main.classes.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
 
 public class EmailTab
 {
@@ -15,6 +18,15 @@ public class EmailTab
         authorTextField.setMouseTransparent(true);
         authorTextField.setFocusTraversable(false);
     }
+
+    @FXML
+    private Tab emailTab = new Tab();
+
+    @FXML
+    private AnchorPane anchorPane = new AnchorPane();
+
+    @FXML
+    private AnchorPane annchorPane2 = new AnchorPane();
 
     @FXML
     private TextField authorTextField = new TextField();

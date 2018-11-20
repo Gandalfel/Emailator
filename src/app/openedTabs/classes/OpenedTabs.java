@@ -74,7 +74,7 @@ public class OpenedTabs
         return etc;
     }
 
-    public int size()
+    public int getTabsCount()
     {
         return list.size();
     }

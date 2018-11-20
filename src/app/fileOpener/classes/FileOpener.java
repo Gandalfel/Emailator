@@ -113,7 +113,7 @@ public class FileOpener
         }
         else if(main.getOpenedTabs().checkFile(selectedFile.getName()))
         {
-            if (main.getOpenedTabs().size() >= 1)
+            if (main.getOpenedTabs().getTabsCount() >= 1)
             {
                 System.out.println("TWICE IFFFFFF");
                 Tab selectedTab = main.getTabPane().getSelectionModel().getSelectedItem();
